@@ -1,23 +1,26 @@
-// lib/app/core/app_router.dart (VERSÃO CORRIGIDA)
+// lib/app/core/app_router.dart (VERSÃO FINAL E LIMPA)
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-// CORREÇÃO: Remova a importação da HomePage que não existe.
-// import 'package:flutter_application/modules/home/presenter/home_page.dart';
+// Usando imports relativos para evitar problemas com o nome do pacote.
+// O caminho ../../ sobe de 'core' para 'app', e de 'app' para 'lib'.
+import '../../modules/home/presenter/home_page.dart';
+import '../../modules/search/presenter/search_page.dart';
+import '../../modules/food/presenter/food_page.dart';
+import '../../modules/shop/presenter/shop_page.dart';
 
-// Agora só precisamos importar as páginas que realmente existem.
-import '../pages/placeholder_page.dart';
 import '../widgets/scaffold_with_nav_bar.dart';
 
+// Chaves de navegação com os nomes corretos e consistentes.
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKeyHome = GlobalKey<NavigatorState>(debugLabel: 'shellHome');
-final _shellNavigatorKeyAlimentos = GlobalKey<NavigatorState>(debugLabel: 'shellAlimentos');
-final _shellNavigatorKeyOrders = GlobalKey<NavigatorState>(debugLabel: 'shellOrders');
+final _shellNavigatorKeySearch = GlobalKey<NavigatorState>(debugLabel: 'shellSearch');
+final _shellNavigatorKeyFood = GlobalKey<NavigatorState>(debugLabel: 'shellFood');
 final _shellNavigatorKeyShop = GlobalKey<NavigatorState>(debugLabel: 'shellShop');
 
 final appRouter = GoRouter(
-  initialLocation: '/home', // A rota inicial continua sendo /home
+  initialLocation: '/home',
   navigatorKey: _rootNavigatorKey,
   
   routes: [
@@ -31,45 +34,33 @@ final appRouter = GoRouter(
         StatefulShellBranch(
           navigatorKey: _shellNavigatorKeyHome,
           routes: [
-            GoRoute(
-              path: '/home',
-              // CORREÇÃO: Use a PlaceholderPage para a aba Home também.
-              builder: (context, state) => const PlaceholderPage(title: 'Home'), 
-            ),
+            GoRoute(path: '/home', builder: (context, state) => const HomePage()),
           ],
         ),
 
-        
-        // Branch 2: Pedidos
+        // Branch 2: Busca
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKeyOrders,
+          navigatorKey: _shellNavigatorKeySearch,
           routes: [
-            GoRoute(
-              path: '/orders',
-              builder: (context, state) => const PlaceholderPage(title: 'Pedidos'),
-            ),
+            GoRoute(path: '/search', builder: (context, state) => const SearchPage()),
           ],
         ),
 
-        // Branch 3: Alimentos
+        // Branch 3: Food
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKeyAlimentos,
+          navigatorKey: _shellNavigatorKeyFood, // Usando a chave correta
           routes: [
-            GoRoute(
-              path: '/alimentos',
-              builder: (context, state) => const PlaceholderPage(title: 'Alimentos'),
-            ),
+            // O path é '/food' e o builder usa a FoodPage
+            GoRoute(path: '/food', builder: (context, state) => const FoodPage()),
           ],
         ),
 
-        // Branch 4: Compras
+        // Branch 4: Shop
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKeyShop,
+          navigatorKey: _shellNavigatorKeyShop, // Usando a chave correta
           routes: [
-            GoRoute(
-              path: '/shop',
-              builder: (context, state) => const PlaceholderPage(title: 'Shop'),
-            ),
+            // O path é '/shop' e o builder usa a ShopPage
+            GoRoute(path: '/shop', builder: (context, state) => const ShopPage()),
           ],
         ),
       ],
