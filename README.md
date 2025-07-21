@@ -1,16 +1,18 @@
-# flutter_application_1
+#Nathapp
 
-A new Flutter project.
+Informações nutricionais na palma da sua mão!
+Esse projeto tem como finalidade fornecer ao público informações nutricionais dos alimentos, trazendo consigo mais conhecimento e autonomia
+para estruturar sua alimentação da melhor forma!
 
-## Getting Started
+##Estrutura
 
-This project is a starting point for a Flutter application.
+Linguagem e framework utilizado:
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter
+- Dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Plataformas disponíveis:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Android 
+- IOS 
+- Web 
