@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 // Tela principal do aplicativo de nutrição
@@ -180,3 +180,4 @@ class _ScreensExample extends StatelessWidget {
     );
   }
 }
+*/
