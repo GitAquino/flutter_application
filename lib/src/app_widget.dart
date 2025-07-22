@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 // Correção: Usando caminhos relativos
-import 'core/app_router.dart'; 
-import 'core/app_theme.dart'; // Importando o tema da aplicação
+import 'ui/core/app_router.dart'; 
+import 'ui/core/app_theme.dart'; // Importando o tema da aplicação
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});

@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 
 // Usando imports relativos para evitar problemas com o nome do pacote.
 // O caminho ../../ sobe de 'core' para 'app', e de 'app' para 'lib'.
-import '../../modules/home/presenter/home_page.dart';
-import '../../modules/search/presenter/search_page.dart';
-import '../../modules/food/presenter/food_page.dart';
-import '../../modules/shop/presenter/shop_page.dart';
+import '../pages/home_page.dart';
+import '../pages/search_page.dart';
+import '../pages/food_page.dart';
+import '../pages/shop_page.dart';
 
 import '../widgets/scaffold_with_nav_bar.dart';
 

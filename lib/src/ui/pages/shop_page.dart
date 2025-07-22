@@ -1,19 +1,19 @@
-// lib/modules/profile/presenter/profile_page.dart
+// lib/modules/orders/presenter/orders_page.dart
 
 import 'package:flutter/material.dart';
 
-class FoodPage extends StatelessWidget {
-  const FoodPage({super.key});
+class ShopPage extends StatelessWidget {
+  const ShopPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Alimentos'),
+        title: const Text('NathApp'),
       ),
       body: const Center(
         child: Text(
-          'Lista de alimentos',
+          'Carrinho de compras',
           style: TextStyle(fontSize: 24),
         ),
       ),

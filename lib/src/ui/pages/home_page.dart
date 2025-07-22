@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'), // A barra de título da página
+        title: const Text('NathApp'), // A barra de título da página
       ),
       body: const Center( // O corpo da página
         child: Text(

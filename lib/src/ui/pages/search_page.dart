@@ -12,7 +12,7 @@ class SearchPage extends StatelessWidget {
     // que será exibida DENTRO do nosso Scaffold principal com a SalomonBar.
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Busca'),
+        title: const Text('NathApp'),
       ),
       body: const Center(
         child: Text(
