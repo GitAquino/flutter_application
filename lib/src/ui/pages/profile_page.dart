@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ShopPage extends StatelessWidget {
-  const ShopPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
+      body: const Center( // O corpo da página
         child: Text(
-          'Carrinho de compras',
+          'Pagina do Usuário',
           style: TextStyle(fontSize: 24),
         ),
       ),

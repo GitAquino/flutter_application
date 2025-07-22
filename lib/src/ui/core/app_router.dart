@@ -9,6 +9,7 @@ import '../pages/home_page.dart';
 import '../pages/search_page.dart';
 import '../pages/food_page.dart';
 import '../pages/shop_page.dart';
+import '../pages/profile_page.dart';
 
 import '../widgets/scaffold_with_nav_bar.dart';
 
@@ -18,6 +19,7 @@ final _shellNavigatorKeyHome = GlobalKey<NavigatorState>(debugLabel: 'shellHome'
 final _shellNavigatorKeySearch = GlobalKey<NavigatorState>(debugLabel: 'shellSearch');
 final _shellNavigatorKeyFood = GlobalKey<NavigatorState>(debugLabel: 'shellFood');
 final _shellNavigatorKeyShop = GlobalKey<NavigatorState>(debugLabel: 'shellShop');
+final _shellNavigatorKeyUser = GlobalKey<NavigatorState>(debugLabel: 'shellUser');
 
 final appRouter = GoRouter(
   initialLocation: '/home',
@@ -61,6 +63,15 @@ final appRouter = GoRouter(
           routes: [
             // O path é '/shop' e o builder usa a ShopPage
             GoRoute(path: '/shop', builder: (context, state) => const ShopPage()),
+          ],
+        ),
+
+        // Branch 5: User
+        StatefulShellBranch(
+          navigatorKey: _shellNavigatorKeyUser, // Usando a chave correta
+          routes: [
+            // O path é '/user' e o builder usa a UserPage
+            GoRoute(path: '/profile', builder: (context, state) => const ProfilePage()),
           ],
         ),
       ],

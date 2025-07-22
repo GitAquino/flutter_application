@@ -8,9 +8,6 @@ class FoodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('NathApp'),
-      ),
       body: const Center(
         child: Text(
           'Lista de alimentos',

@@ -1,5 +1,3 @@
-// lib/modules/search/presenter/search_page.dart
-
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -7,13 +5,7 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Note que o Scaffold aqui é importante.
-    // Ele fornece a estrutura básica (como a AppBar) para a página
-    // que será exibida DENTRO do nosso Scaffold principal com a SalomonBar.
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('NathApp'),
-      ),
       body: const Center(
         child: Text(
           'Página de Busca',
