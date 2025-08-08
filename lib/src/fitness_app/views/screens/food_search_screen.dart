@@ -11,13 +11,13 @@ import '../widgets/food_search/weight_calculator.dart';
 class FoodSearchScreen extends StatefulWidget {
   final AnimationController? animationController;
 
-  const FoodSearchScreen({Key? key, this.animationController}) : super(key: key);
+  const FoodSearchScreen({super.key, this.animationController});
 
   @override
-  _FoodSearchScreenState createState() => _FoodSearchScreenState();
+  FoodSearchScreenState createState() => FoodSearchScreenState();
 }
 
-class _FoodSearchScreenState extends State<FoodSearchScreen>
+class FoodSearchScreenState extends State<FoodSearchScreen>
     with TickerProviderStateMixin {
   final TextEditingController _searchController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
@@ -28,8 +28,8 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
   FoodCategory? _selectedCategory;
   PreparationType _selectedPreparation = PreparationType.raw;
   double _rawWeight = 0.0;
-  double _finalWeight = 0.0;
-  bool _isLoading = false;
+
+
   
   AnimationController? _listAnimationController;
   Animation<double>? _topBarAnimation;
@@ -137,16 +137,7 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
   }
 
   void _calculateFinalWeight() {
-    if (_selectedFood != null && _rawWeight > 0) {
-      final finalWeight = _selectedFood!.calculateFinalWeight(_rawWeight, _selectedPreparation);
-      setState(() {
-        _finalWeight = finalWeight;
-      });
-    } else {
-      setState(() {
-        _finalWeight = 0.0;
-      });
-    }
+    // Peso final é calculado automaticamente pelo WeightCalculator
   }
 
   @override
@@ -190,7 +181,7 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.4),
+                        color: FitnessAppTheme.grey.withValues(alpha: 0.4),
                         offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0,
                       ),
@@ -237,7 +228,7 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                        color: FitnessAppTheme.grey.withOpacity(0.4),
+                        color: FitnessAppTheme.grey.withValues(alpha: 0.4),
                         offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0,
                       ),
@@ -269,7 +260,7 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(
-                                color: FitnessAppTheme.grey.withOpacity(0.3),
+                                color: FitnessAppTheme.grey.withValues(alpha: 0.3),
                               ),
                             ),
                             suffixText: 'g',
@@ -284,17 +275,18 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
               if (_selectedFood != null && _rawWeight > 0)
                 WeightCalculator(
                   selectedFood: _selectedFood!,
-                  rawWeight: _rawWeight,
-                  finalWeight: _finalWeight,
                   preparationType: _selectedPreparation,
+                  onWeightChanged: (rawWeight, finalWeight) {
+                    setState(() {
+                      _rawWeight = rawWeight;
+                    });
+                  },
                   animationController: _listAnimationController,
                 ),
               // Lista de alimentos
               FoodListView(
                 foods: _searchResults,
-                selectedFood: _selectedFood,
                 onFoodSelected: _onFoodSelected,
-                isLoading: _isLoading,
                 animationController: _listAnimationController,
               ),
               SizedBox(height: 100),
@@ -318,14 +310,14 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
                     0.0, 30 * (1.0 - _topBarAnimation!.value), 0.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: FitnessAppTheme.white.withOpacity(topBarOpacity),
+                    color: FitnessAppTheme.white.withValues(alpha: topBarOpacity),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(32.0),
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
                           color: FitnessAppTheme.grey
-                              .withOpacity(0.4 * topBarOpacity),
+                              .withValues(alpha: 0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],

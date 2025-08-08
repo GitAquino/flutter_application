@@ -3,7 +3,7 @@ import '../../models/tabIcon_data.dart';
 import '../../config/fitness_app_theme.dart';
 import '../widgets/bottom_navigation/bottom_bar_view.dart';
 import 'my_diary_screen.dart';
-import 'training_screen.dart';
+import 'meal_list_screen.dart';
 import '../food_search_screen.dart';
 import 'profile_screen.dart';
 
@@ -96,7 +96,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody = TrainingScreen(animationController: animationController);
+                  tabBody = MealListScreen(animationController: animationController);
                 });
               });
             } else if (index == 2) {
