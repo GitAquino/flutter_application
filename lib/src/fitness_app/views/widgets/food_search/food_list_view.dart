@@ -8,11 +8,11 @@ class FoodListView extends StatelessWidget {
   final AnimationController? animationController;
 
   const FoodListView({
-    Key? key,
+    super.key,
     required this.foods,
     required this.onFoodSelected,
     this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -418,7 +418,7 @@ class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll('#', '');
     if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
+      hexColor = 'FF$hexColor';
     }
     return int.parse(hexColor, radix: 16);
   }

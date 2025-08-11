@@ -8,11 +8,11 @@ class PreparationSelector extends StatefulWidget {
   final AnimationController? animationController;
 
   const PreparationSelector({
-    Key? key,
+    super.key,
     required this.selectedPreparation,
     required this.onPreparationSelected,
     this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   _PreparationSelectorState createState() => _PreparationSelectorState();
@@ -72,7 +72,7 @@ class _PreparationSelectorState extends State<PreparationSelector>
                         ),
                       ),
                       SizedBox(height: 12),
-                      Container(
+                      SizedBox(
                         height: 80,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,

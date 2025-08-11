@@ -9,12 +9,12 @@ class FinalWeightDisplay extends StatefulWidget {
   final AnimationController? animationController;
 
   const FinalWeightDisplay({
-    Key? key,
+    super.key,
     required this.selectedFood,
     required this.preparationType,
     required this.inputWeight,
     this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   _FinalWeightDisplayState createState() => _FinalWeightDisplayState();

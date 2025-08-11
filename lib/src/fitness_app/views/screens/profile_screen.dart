@@ -25,7 +25,7 @@ class ProfileMenuItemData {
 }
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key, this.animationController}) : super(key: key);
+  const ProfileScreen({super.key, this.animationController});
 
   final AnimationController? animationController;
 

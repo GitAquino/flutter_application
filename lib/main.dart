@@ -16,7 +16,7 @@ void main() async {
 }
 
 class FitnessApp extends StatelessWidget {
-  const FitnessApp({Key? key}) : super(key: key);
+  const FitnessApp({super.key});
 
   @override
   Widget build(BuildContext context) {

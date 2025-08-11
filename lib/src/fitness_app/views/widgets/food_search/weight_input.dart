@@ -8,11 +8,11 @@ class WeightInput extends StatefulWidget {
   final AnimationController? animationController;
 
   const WeightInput({
-    Key? key,
+    super.key,
     required this.weight,
     required this.onWeightChanged,
     this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   _WeightInputState createState() => _WeightInputState();

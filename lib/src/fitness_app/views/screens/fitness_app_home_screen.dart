@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '../../models/tabIcon_data.dart';
 import '../../config/fitness_app_theme.dart';
 import '../widgets/bottom_navigation/bottom_bar_view.dart';
-import 'my_diary_screen.dart';
+import 'home_dashboard_screen.dart';
 import 'meal_list_screen.dart';
 import '../food_search_screen.dart';
 import 'profile_screen.dart';
 
 class FitnessAppHomeScreen extends StatefulWidget {
+  const FitnessAppHomeScreen({super.key});
+
   @override
   _FitnessAppHomeScreenState createState() => _FitnessAppHomeScreenState();
 }
@@ -24,14 +26,14 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
   @override
   void initState() {
-    tabIconsList.forEach((TabIconData tab) {
+    for (var tab in tabIconsList) {
       tab.isSelected = false;
-    });
+    }
     tabIconsList[0].isSelected = true;
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = HomeDashboardScreen(animationController: animationController);
     super.initState();
   }
 
@@ -87,7 +89,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody = MyDiaryScreen(animationController: animationController);
+                  tabBody = HomeDashboardScreen(animationController: animationController);
                 });
               });
             } else if (index == 1) {

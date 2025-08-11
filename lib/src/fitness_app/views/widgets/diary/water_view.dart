@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 
 class WaterView extends StatefulWidget {
   const WaterView(
-      {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
-      : super(key: key);
+      {super.key, this.mainScreenAnimationController, this.mainScreenAnimation});
 
   final AnimationController? mainScreenAnimationController;
   final Animation<double>? mainScreenAnimation;

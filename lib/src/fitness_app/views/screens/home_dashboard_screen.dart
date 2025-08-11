@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import '../../config/fitness_app_theme.dart';
-import '../widgets/ui_components/body_measurement.dart';
-import '../widgets/ui_components/glass_view.dart';
-import '../widgets/ui_components/mediterranean_diet_view.dart';
+import '../widgets/home/welcome_section.dart';
+import '../widgets/home/daily_meals_summary.dart';
+import '../widgets/home/general_meals_summary.dart';
+import '../widgets/home/shopping_list_section.dart';
+import '../widgets/home/nutritional_posts_section.dart';
+import '../widgets/home/nutritionist_tips_section.dart';
 import '../widgets/ui_components/title_view.dart';
-import '../widgets/diary/meals_list_view.dart';
-import '../widgets/diary/water_view.dart';
 
-class MyDiaryScreen extends StatefulWidget {
-  const MyDiaryScreen({super.key, this.animationController});
+class HomeDashboardScreen extends StatefulWidget {
+  const HomeDashboardScreen({super.key, this.animationController});
 
   final AnimationController? animationController;
   @override
-  _MyDiaryScreenState createState() => _MyDiaryScreenState();
+  _HomeDashboardScreenState createState() => _HomeDashboardScreenState();
 }
 
-class _MyDiaryScreenState extends State<MyDiaryScreen>
+class _HomeDashboardScreenState extends State<HomeDashboardScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 
@@ -57,12 +58,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
   }
 
   void addAllListData() {
-    const int count = 9;
+    const int count = 8;
 
+    // Seção de boas-vindas
     listViews.add(
-      TitleView(
-        titleTxt: 'Mediterranean diet',
-        subTxt: 'Details',
+      WelcomeSection(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -70,8 +70,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
+
+    // Resumo de refeições diário
     listViews.add(
-      MediterraneanDietView(
+      TitleView(
+        titleTxt: 'Resumo Diário',
+        subTxt: 'Hoje',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -80,9 +84,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
     listViews.add(
-      TitleView(
-        titleTxt: 'Meals today',
-        subTxt: 'Customize',
+      DailyMealsSummary(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -90,20 +92,21 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
+
+    // Resumo geral das refeições
     listViews.add(
-      MealsListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
+      TitleView(
+        titleTxt: 'Resumo Geral',
+        subTxt: 'Esta semana',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
       ),
     );
     listViews.add(
-      TitleView(
-        titleTxt: 'Body measurement',
-        subTxt: 'Today',
+      GeneralMealsSummary(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -111,8 +114,12 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
+
+    // Lista de compras
     listViews.add(
-      BodyMeasurementView(
+      TitleView(
+        titleTxt: 'Lista de Compras',
+        subTxt: 'Ver tudo',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -121,9 +128,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
       ),
     );
     listViews.add(
-      TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
+      ShoppingListSection(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -131,18 +136,32 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
         animationController: widget.animationController!,
       ),
     );
+
+    // Posts nutricionais
     listViews.add(
-      WaterView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 7, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
+      TitleView(
+        titleTxt: 'Conteúdo Nutricional',
+        subTxt: 'Explorar',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 7, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
       ),
     );
     listViews.add(
-      GlassView(
+      NutritionalPostsSection(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 8, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    // Dicas da nutri
+    listViews.add(
+      NutritionistTipsSection(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -246,7 +265,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'My Diary',
+                                  'NutriApp',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: FitnessAppTheme.fontName,
@@ -268,39 +287,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 onTap: () {},
                                 child: Center(
                                   child: Icon(
-                                    Icons.keyboard_arrow_left,
+                                    Icons.notifications_outlined,
                                     color: FitnessAppTheme.grey,
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: FitnessAppTheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    '15 May',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: FitnessAppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: FitnessAppTheme.darkerText,
-                                    ),
-                                  ),
-                                ],
                               ),
                             ),
                             SizedBox(
@@ -313,7 +303,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
                                 onTap: () {},
                                 child: Center(
                                   child: Icon(
-                                    Icons.keyboard_arrow_right,
+                                    Icons.search,
                                     color: FitnessAppTheme.grey,
                                   ),
                                 ),

@@ -9,11 +9,11 @@ class CategorySelector extends StatefulWidget {
   final AnimationController? animationController;
 
   const CategorySelector({
-    Key? key,
+    super.key,
     required this.selectedCategory,
     required this.onCategorySelected,
     this.animationController,
-  }) : super(key: key);
+  });
 
   @override
   _CategorySelectorState createState() => _CategorySelectorState();
@@ -99,7 +99,7 @@ class _CategorySelectorState extends State<CategorySelector>
                         ],
                       ),
                       SizedBox(height: 12),
-                      Container(
+                      SizedBox(
                         height: 80,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,

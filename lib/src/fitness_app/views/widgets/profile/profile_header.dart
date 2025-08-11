@@ -4,12 +4,12 @@ import '../../../models/user_model.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
-    Key? key,
+    super.key,
     this.animationController,
     this.animation,
     this.user,
     this.onImageTap,
-  }) : super(key: key);
+  });
 
   final AnimationController? animationController;
   final Animation<double>? animation;

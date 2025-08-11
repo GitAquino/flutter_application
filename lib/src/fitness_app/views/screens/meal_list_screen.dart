@@ -4,7 +4,7 @@ import '../../models/meal_list_model.dart';
 import '../../models/food_item_model.dart';
 
 class MealListScreen extends StatefulWidget {
-  const MealListScreen({Key? key, this.animationController}) : super(key: key);
+  const MealListScreen({super.key, this.animationController});
 
   final AnimationController? animationController;
 
@@ -332,13 +332,13 @@ class _MealListScreenState extends State<MealListScreen>
 
 class MealListCard extends StatelessWidget {
   const MealListCard({
-    Key? key,
+    super.key,
     required this.mealList,
     required this.animationController,
     required this.animation,
     required this.onTap,
     required this.onDelete,
-  }) : super(key: key);
+  });
 
   final MealListModel mealList;
   final AnimationController animationController;
@@ -506,7 +506,7 @@ class MealListCard extends StatelessWidget {
 }
 
 class CreateMealListDialog extends StatefulWidget {
-  const CreateMealListDialog({Key? key, required this.onSave}) : super(key: key);
+  const CreateMealListDialog({super.key, required this.onSave});
 
   final Function(String name, String description) onSave;
 

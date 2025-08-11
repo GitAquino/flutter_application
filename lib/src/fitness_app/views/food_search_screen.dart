@@ -8,7 +8,7 @@ import 'widgets/food_search/weight_input.dart';
 import 'widgets/food_search/final_weight_display.dart';
 
 class FoodSearchScreen extends StatefulWidget {
-  const FoodSearchScreen({Key? key, this.animationController}) : super(key: key);
+  const FoodSearchScreen({super.key, this.animationController});
   
   final AnimationController? animationController;
 
@@ -35,10 +35,6 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   void _performSearch() async {
     if (_searchQuery.isNotEmpty) {
@@ -328,7 +324,7 @@ class _FoodSearchScreenState extends State<FoodSearchScreen>
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: 200,
             child: _searchResults.isEmpty
                 ? Center(

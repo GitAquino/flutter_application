@@ -3,7 +3,7 @@ import '../../../config/fitness_app_theme.dart';
 
 class ProfileMenuItem extends StatelessWidget {
   const ProfileMenuItem({
-    Key? key,
+    super.key,
     this.animationController,
     this.animation,
     required this.title,
@@ -13,7 +13,7 @@ class ProfileMenuItem extends StatelessWidget {
     this.showArrow = true,
     this.isDestructive = false,
     this.trailing,
-  }) : super(key: key);
+  });
 
   final AnimationController? animationController;
   final Animation<double>? animation;
@@ -134,10 +134,10 @@ class ProfileMenuItem extends StatelessWidget {
 // Widget para switch/toggle
 class ProfileMenuSwitch extends StatelessWidget {
   const ProfileMenuSwitch({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -158,9 +158,9 @@ class ProfileMenuSwitch extends StatelessWidget {
 // Widget para badge de notificação
 class ProfileMenuBadge extends StatelessWidget {
   const ProfileMenuBadge({
-    Key? key,
+    super.key,
     required this.count,
-  }) : super(key: key);
+  });
 
   final int count;
 
